@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://deannas-wine-bar-demo.up.railway.app/sitemap.xml
