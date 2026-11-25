@@ -99,8 +99,9 @@ const server = http.createServer(async (req, res) => {
 
   if (p === "/healthz") { res.writeHead(200, { "content-type": "text/plain" }); return res.end("ok"); }
 
-  // demand pixel: 43-byte transparent GIF, one row per GET with token in access log
-  if (p === "/pixel.gif") {
+  // demand pixel: 43-byte transparent GIF. 11-19+ cohort pitch route is /open?t=<token>
+  // (funnel_aggregate + pilot spec); /pixel.gif kept for the on-page footer pixel.
+  if ((p === "/open" || p === "/pixel.gif") && (req.method === "GET" || req.method === "HEAD")) {
     const buf = fs.readFileSync(path.join(__dirname, "pixel.gif"));
     res.writeHead(200, { "content-type": "image/gif", "cache-control": "no-store, no-cache, must-revalidate", "x-rails": "pixel" });
     return res.end(buf);
