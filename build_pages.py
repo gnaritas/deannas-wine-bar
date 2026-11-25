@@ -156,7 +156,7 @@ pages["index.html"] = (
   </article>
   <article class="frame">
     <p class="lab mono">The pig shop</p>
-    <h2>Charcuterie made in this room</h2>
+    <h2>Charcuterie<br>made in this room</h2>
     <p>Bert&#8217;s Pig Shop works whole hogs from Peculiar Pig, a fifth-generation family farm in Dorchester County. Fresh pork, sausages and house-made charcuterie — rendered on site, under our state agriculture license.</p>
     <p><a href="/charcuterie-and-fresh-pork">Meet Bert&#8217;s Pig Shop &rarr;</a></p>
   </article>
@@ -174,7 +174,7 @@ pages["index.html"] = (
     <p>The exact opening day, the hours and the full board list land right here — and in the opening-day email, which people on the list get first.</p>
     <p><a class="btn" href="/contact">Join the opening-day list</a></p>
   </div>
-  <div class="band-map"><iframe src="''' + MAP_Q + '''" loading="lazy" title="Map: Deanna's Wine Bar and Bert's Pig Shop, 521 Wappoo Road, Charleston SC" allow="management:coordinate"></iframe></div>
+  <div class="band-map"><iframe src="''' + MAP_Q + '''" loading="lazy" title="Map: Deanna's Wine Bar and Bert's Pig Shop, 521 Wappoo Road, Charleston SC" allow="management:coordinate"></iframe><p class="mapcap">521 Wappoo Road &middot; Charleston SC 29407 &middot; <a href="''' + DIRS + '''">Get directions &nearr;</a></p></div>
 </section>''')
 
 # ---------------- THE CONCEPT (hub + FAQ) ----------------
@@ -199,7 +199,6 @@ pages["the-concept.html"] = (
     + nav("/the-concept")
     + '''<article class="page">
   <p class="crumbs mono"><a href="/">Home</a> &middot; The concept</p>
-  <p class="lab mono">The concept</p>
   <h1>Two counters, one room</h1>
   <p class="lede">Deanna&#8217;s Wine Bar and Bert&#8217;s Pig Shop share one storefront, one kitchen and one idea: the pig arrives whole, everything gets used, and the wine is chosen to drink with it.</p>
   <h2>One farm, start to finish</h2>
@@ -280,7 +279,6 @@ pages["our-story.html"] = (
     + nav("/our-story")
     + '''<article class="page">
   <p class="crumbs mono"><a href="/">Home</a> &middot; Our story</p>
-  <p class="lab mono">Our story</p>
   <h1>A wine bar named for somebody&#8217;s mother</h1>
   <p class="lede">Deanna&#8217;s is named for Deanna Hickerson — the mother of Douglas Hickerson, one half of the pair behind this place. The other half is chef Bert Sheffield, and his family&#8217;s farm puts the pigs on the counter.</p>
   <h2>The two of them</h2>
@@ -310,7 +308,6 @@ pages["visit.html"] = (
     + nav("/visit")
     + '''<article class="page">
   <p class="crumbs mono"><a href="/">Home</a> &middot; Visit</p>
-  <p class="lab mono">Visit</p>
   <h1>521 Wappoo Road</h1>
   <p class="lede">Where Wappoo Road bends out toward the Wappoo Cut, at the corner of Pebble Street — a block off Savannah Highway, in the old 7&#8209;Eleven.</p>
   <div class="visit-grid">
@@ -321,7 +318,7 @@ pages["visit.html"] = (
       <p class="lab mono">Opening</p>
       <p>Late 2026. The opening day and the hours will be posted on this page first — people on the <a href="/contact">opening-day list</a> get an email the day it is set.</p>
     </div>
-    <div class="map-tall"><iframe src="%s" loading="lazy" title="Map of Deanna's Wine Bar and Bert's Pig Shop at 521 Wappoo Road, Charleston SC" allow="management:coordinate"></iframe></div>
+    <div class="map-tall"><iframe src="%s" loading="lazy" title="Map of Deanna's Wine Bar and Bert's Pig Shop at 521 Wappoo Road, Charleston SC" allow="management:coordinate"></iframe><p class="mapcap">Wappoo Road at Pebble Street &middot; a block off Savannah Highway</p></div>
   </div>
 </article>''' % (ADDR, DIRS, MAP_Q))
 
@@ -351,8 +348,8 @@ pages["contact.html"] = (
     <p class="addr">%s</p>
     <p><a href="%s">Get directions &nearr;</a></p>
   </div>
-  <div class="map-tall"><iframe src="%s" loading="lazy" title="Map: 521 Wappoo Road, Charleston SC — Deanna's Wine Bar and Bert's Pig Shop" allow="management:coordinate"></iframe></div>
-</article>''' % (ADDR, DIRS, MAP_Q))
+  <div class="map-tall"><iframe src="%s" loading="lazy" title="Map: 521 Wappoo Road, Charleston SC — Deanna's Wine Bar and Bert's Pig Shop" allow="management:coordinate"></iframe><p class="mapcap">521 Wappoo Road &middot; corner of Wappoo Road and Pebble Street &middot; <a href="%s">Get directions &nearr;</a></p></div>
+</article>''' % (ADDR, DIRS, MAP_Q, DIRS))
 
 # ---------------- PRIVACY ----------------
 pages["privacy.html"] = (
@@ -363,7 +360,6 @@ pages["privacy.html"] = (
     + nav("/privacy")
     + '''<article class="page">
   <p class="crumbs mono"><a href="/">Home</a> &middot; Privacy</p>
-  <p class="lab mono">Privacy</p>
   <h1>What you send us</h1>
   <p>Messages from this site&#8217;s form go straight to the shop&#8217;s inbox — the name, email and note you type, nothing more. We use them to answer you and to send the opening-day announcement to people who asked for it. We do not sell, rent or trade your details.</p>
   <p>This site sets no cookies and runs no advertising or analytics trackers. Pages load from our own host with our own stylesheet; there is no third-party script on any page.</p>
@@ -412,7 +408,7 @@ body{background:var(--paper);color:var(--ink);font-family:var(--serif);font-size
 a{color:var(--wine)}
 a:hover{color:var(--wine-deep)}
 .mono{font-family:var(--mono)}
-header.site{padding:1.1rem 1.5rem;border-bottom:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;align-items:center;justify-content:space-between}
+header.site{padding:1.1rem max(1.1rem, calc((100vw - 1012px)/2));border-bottom:1px solid var(--rule);display:flex;flex-wrap:wrap;gap:.6rem 1.5rem;align-items:center;justify-content:space-between}
 .brand{font-size:13px;letter-spacing:.16em;text-transform:uppercase;margin:0}
 .brand a{color:var(--ink);text-decoration:none}
 .brand em{font-style:normal;color:var(--wine)}
@@ -433,13 +429,15 @@ main{max-width:1060px;margin:0 auto;padding:0 1.5rem 3.5rem}
 .btn.sm{padding:.45rem .8rem;font-size:11px}
 a.ghost{color:var(--blush);font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;text-decoration:underline;text-underline-offset:5px}
 .panels{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.2rem;margin:1.6rem 0 2.2rem}
-.frame{background:#fff;border:1px solid var(--rule);outline:1px solid var(--blush);outline-offset:-9px;padding:1.6rem 1.4rem 1.4rem}
+.panels>.frame{height:100%}
+.frame{background:#fff;border:1px solid var(--rule);outline:1px solid var(--blush);outline-offset:-9px;padding:1.6rem 1.4rem 1.4rem;display:flex;flex-direction:column}
 .frame h2{font-size:1.3rem;line-height:1.2;margin-bottom:.5rem}
 .frame p{margin-bottom:.7rem}
-.frame p:last-child{margin-bottom:0}
+.frame p:last-child{margin-bottom:0;margin-top:auto}
 .band{display:grid;grid-template-columns:minmax(300px,1.25fr) minmax(260px,1fr);gap:1.4rem;align-items:center;background:var(--cream);border:1px solid var(--rule);padding:1.6rem}
 .band h2{font-size:1.6rem;margin-bottom:.4rem}
 .band-map iframe{width:100%;aspect-ratio:4/3;border:1px solid var(--rule);display:block;background:var(--paper)}
+.mapcap{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);text-align:center;margin-top:.5rem}
 .page{padding-top:1.8rem}
 .crumbs{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:1rem}
 h1{font-size:clamp(1.9rem,4.5vw,2.9rem);line-height:1.1;margin-bottom:.8rem}
