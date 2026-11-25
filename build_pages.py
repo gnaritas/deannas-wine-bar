@@ -493,4 +493,10 @@ locs = "\n".join('<url><loc>%s%s</loc><lastmod>%s</lastmod></url>' %
                  (ORIGIN, "/" if f == "index.html" else "/" + f[:-5], today) for f in core)
 write("sitemap.xml", '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n%s\n</urlset>\n' % locs)
 write("robots.txt", "User-agent: *\nDisallow:\n\nSitemap: %s/sitemap.xml\n" % ORIGIN)
+# static assets that live at repo root must ride into public/ (server serves public/ only)
+import shutil
+for asset in ("pixel.gif", "favicon.svg"):
+    src = os.path.join(HERE, asset)
+    if os.path.exists(src):
+        shutil.copyfile(src, os.path.join(PUBLIC, asset))
 print("built %d pages + css + sitemap + robots" % len(pages))
